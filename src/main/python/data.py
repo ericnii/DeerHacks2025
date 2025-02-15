@@ -1,7 +1,7 @@
 from openai import OpenAI
 
 client = OpenAI(
-    api_key='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'
+    api_key=''
 )
 
 prompt = "who is the president of Canada?"
