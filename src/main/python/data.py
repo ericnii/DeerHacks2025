@@ -1,12 +1,20 @@
-from ollama import chat
-from ollama import ChatResponse
+from openai import OpenAI
 
-response: ChatResponse = chat(model='deepseek-r1:8b', messages=[
-  {
-    'role': 'user',
-    'content': 'who is the president of the philippines?',
-  },
-])
-# print(response['message']['content'])
-# or access fields directly from the response object
-print(response.message.content)
+client = OpenAI(
+    api_key='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'
+)
+
+prompt = "who is the president of Canada?"
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role":"user",
+            "content":"prompt"
+        }
+    ],
+    model="gpt-3.5-turbo"
+
+)
+
+print(chat_completion.choices[0].message.content)
